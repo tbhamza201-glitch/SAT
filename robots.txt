@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://hamzasat.com/sitemap.xml
