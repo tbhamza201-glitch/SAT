@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم — أهل محمد</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <aside class="dash-sidebar">
+        <div class="dash-logo">أهل محمد</div>
+        <nav class="dash-nav">
+            <button class="dash-nav-item active" data-view="overview">
+                <span>📊</span> نظرة عامة
+            </button>
+            <button class="dash-nav-item" data-view="content">
+                <span>📝</span> المحتوى
+            </button>
+            <button class="dash-nav-item" data-view="hero">
+                <span>🖼️</span> القسم الرئيسي
+            </button>
+            <button class="dash-nav-item" data-view="about">
+                <span>ℹ️</span> عن القرية
+            </button>
+            <button class="dash-nav-item" data-view="history">
+                <span>📜</span> تاريخ القرية
+            </button>
+            <button class="dash-nav-item" data-view="residents">
+                <span>👨‍👩‍👧‍👦</span> سكان القرية
+            </button>
+            <button class="dash-nav-item" data-view="services">
+                <span>🛠️</span> الخدمات
+            </button>
+            <button class="dash-nav-item" data-view="prayer">
+                <span>🕌</span> مواقيت الصلاة
+            </button>
+            <button class="dash-nav-item" data-view="shop">
+                <span>🛍️</span> المتجر
+            </button>
+            <button class="dash-nav-item" data-view="contact">
+                <span>📩</span> الرسائل
+            </button>
+        </nav>
+        <a href="index.html" class="btn btn-view-site">عرض الموقع ←</a>
+        <div class="dash-user">
+            <span id="dashUserName">👤</span>
+            <button id="logoutBtn" class="btn-logout">تسجيل الخروج</button>
+        </div>
+    </aside>
+
+    <main class="dash-main">
+        <header class="dash-header">
+            <h1>لوحة التحكم</h1>
+            <div class="dash-actions">
+                <button id="saveBtn" class="btn btn-primary">💾 حفظ التغييرات</button>
+                <button id="resetBtn" class="btn btn-reset">↺ استعادة الافتراضي</button>
+                <button id="themeToggle" class="btn btn-theme">🌙 السمة الداكنة</button>
+            </div>
+            <div id="saveMsg" class="save-msg"></div>
+        </header>
+
+        <!-- نظرة عامة -->
+        <section class="dash-view active" data-view-panel="overview">
+            <h2>نظرة عامة</h2>
+            <div class="overview-cards">
+                <div class="ov-card">
+                    <span class="ov-icon">🏘️</span>
+                    <h3>نسمة</h3>
+                    <p id="ovPopulation">1500</p>
+                </div>
+                <div class="ov-card">
+                    <span class="ov-icon">👪</span>
+                    <h3>أسرة</h3>
+                    <p id="ovFamilies">500</p>
+                </div>
+                <div class="ov-card">
+                    <span class="ov-icon">🛠️</span>
+                    <h3>دروس</h3>
+                    <p id="ovServices">1</p>
+                </div>
+            </div>
+            <div class="hint-box">
+                <h4>💡 كيف يعمل هذا النظام؟</h4>
+                <p>
+                    يتم حفظ جميع التغييرات في متصفحك (التخزين المحلي). لتحديث الموقع،
+                    عدّل المحتوى ثم اضغط "حفظ التغييرات". تعود الصفحة الرئيسية لتعرض
+                    البيانات المحفوظة تلقائياً.
+                </p>
+                <p>
+                    ملاحظة: يتم الحفظ في متصفحك فقط (localStorage)، وليس على خادم.
+                    لتحقيق حفظ دائم لجميع الزوار، ستحتاج إلى ربط الموقع بقاعدة بيانات
+                    ونظام خلفية (Backend).
+                </p>
+            </div>
+        </section>
+
+        <!-- المحتوى -->
+        <section class="dash-view" data-view-panel="content">
+            <h2>المحتوى العام</h2>
+            <div class="field">
+                <label>اسم القرية</label>
+                <input type="text" id="siteName" class="dash-input">
+            </div>
+            <div class="field">
+                <label>وصف قصير (يظهر في التذييل)</label>
+                <input type="text" id="siteTagline" class="dash-input">
+            </div>
+            <div class="field">
+                <label>رقم الهاتف</label>
+                <input type="text" id="contactPhone" class="dash-input">
+            </div>
+            <div class="field">
+                <label>البريد الإلكتروني</label>
+                <input type="text" id="contactEmail" class="dash-input">
+            </div>
+            <div class="field">
+                <label>موقع القرية / التبعية الإدارية</label>
+                <input type="text" id="locationText" class="dash-input">
+            </div>
+        </section>
+
+        <!-- القسم الرئيسي -->
+        <section class="dash-view" data-view-panel="hero">
+            <h2>القسم الرئيسي</h2>
+            <div class="field">
+                <label>العنوان الرئيسي</label>
+                <input type="text" id="heroTitle" class="dash-input">
+            </div>
+            <div class="field">
+                <label>النص الترحيبي</label>
+                <textarea id="heroSub" class="dash-input" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label>رابط خلفية الصفحة الرئيسية (URL)</label>
+                <input type="text" id="heroBg" class="dash-input">
+            </div>
+        </section>
+
+        <!-- عن القرية -->
+        <section class="dash-view" data-view-panel="about">
+            <h2>عن القرية</h2>
+            <div class="field">
+                <label>الفقرة الأولى</label>
+                <textarea id="aboutP1" class="dash-input" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label>الفقرة الثانية</label>
+                <textarea id="aboutP2" class="dash-input" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label>الأهمية الاقتصادية — الفقرة الأولى</label>
+                <textarea id="aboutP3" class="dash-input" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label>الأهمية الاقتصادية — الفقرة الثانية</label>
+                <textarea id="aboutP4" class="dash-input" rows="3"></textarea>
+            </div>
+            <div class="stats-row">
+                <div class="field">
+                    <label>النسمة</label>
+                    <input type="number" id="statPop" class="dash-input">
+                </div>
+                <div class="field">
+                    <label>الأسرة</label>
+                    <input type="number" id="statFam" class="dash-input">
+                </div>
+                <div class="field">
+                    <label>سنوات التاريخ</label>
+                    <input type="number" id="statYears" class="dash-input">
+                </div>
+            </div>
+        </section>
+
+        <!-- تاريخ القرية -->
+        <section class="dash-view" data-view-panel="history">
+            <h2>تاريخ القرية</h2>
+            <p class="dash-note">أضف الوقائع والأحداث التاريخية المهمة عن القرية:</p>
+            <div id="historyEditor" class="services-editor"></div>
+            <button id="addHistory" class="btn btn-add">+ إضافة واقعة تاريخية</button>
+        </section>
+
+        <!-- الخدمات -->
+        <section class="dash-view" data-view-panel="services">
+            <h2>الخدمات</h2>
+            <p class="dash-note">أدر خدمات القرية (دروس خصوصية وحلويات) المعروضة في الموقع.</p>
+            <div id="servicesEditor" class="services-editor"></div>
+            <button id="addService" class="btn btn-add">+ إضافة خدمة</button>
+        </section>
+
+        <!-- مواقيت الصلاة -->
+        <section class="dash-view" data-view-panel="prayer">
+            <h2>مواقيت الصلاة</h2>
+            <p class="dash-note">عدّل أوقات الصلاة المعروضة في الموقع. البطاقة البارزة (عادة الفجر والعشاء) تُفعَّل بالتبديل.</p>
+            <div id="prayerEditor" class="services-editor"></div>
+            <button id="addPrayer" class="btn btn-add">+ إضافة وقت صلاة</button>
+        </section>
+
+        <!-- سكان القرية -->
+        <section class="dash-view" data-view-panel="residents">
+            <h2>سكان القرية</h2>
+            <div class="field">
+                <label>أصول السكان والعائلات</label>
+                <textarea id="resOrigin" class="dash-input" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label>الهجرة وانتشار السكان</label>
+                <textarea id="resMigration" class="dash-input" rows="3"></textarea>
+            </div>
+        </section>
+
+        <!-- المتجر -->
+        <section class="dash-view" data-view-panel="shop">
+            <h2>المتجر</h2>
+            <p class="dash-note">أدر منتجات المتجر (الاسم، السعر، رابط الصورة، الوصف):</p>
+            <div id="shopEditor" class="services-editor"></div>
+            <button id="addProduct" class="btn btn-add">+ إضافة منتج</button>
+        </section>
+
+        <!-- الرسائل -->
+        <section class="dash-view" data-view-panel="contact">
+            <h2>الرسائل الواردة</h2>
+            <p class="dash-note">الرسائل التي أرسلها الزوار عبر نموذج التواصل في الموقع تظهر هنا:</p>
+            <div id="messagesList" class="messages-list">
+                <p class="empty-msg">لا توجد رسائل بعد.</p>
+            </div>
+            <button id="clearMessages" class="btn btn-reset">🗑️ مسح كل الرسائل</button>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
