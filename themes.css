@@ -1,0 +1,496 @@
+/* ============================================================
+   نظام ألوان الموقع ولوحة التحكم — ثيمات متعددة
+   تُطبق عبر الخاصية data-color-theme على عنصر <html>
+   الثيم الافتراضي (أخضر) محدد داخل :root في style.css
+   ============================================================ */
+
+/* ===== ثيم: أزرق ===== */
+[data-color-theme="blue"] {
+    --primary: #2b6cb0;
+    --primary-dark: #1a4a80;
+    --accent: #93c5ee;
+    --accent-soft: #e6f1fb;
+    --gold: #e0a32e;
+    --gold-soft: #faf0d9;
+    --light: #f4f8fc;
+    --dark: #101c2b;
+    --text: #33465c;
+    --teal: #2b88a0;
+    --teal-deep: #1b6478;
+    --sky: #3a7bd5;
+    --sky-soft: #e6eefb;
+    --sun: #f2b64a;
+    --sun-soft: #faf0d8;
+    --rose: #c0608f;
+    --rose-soft: #f7e9f0;
+    --grape: #7a5cc0;
+    --grape-soft: #eee8fc;
+    --clay: #d05c3a;
+    --clay-soft: #fdeae2;
+    --nav-g1: rgba(16, 59, 105, 0.95);
+    --nav-g2: rgba(28, 110, 158, 0.95);
+    --nav-g1-solid: rgba(16, 59, 105, 0.99);
+    --nav-g2-solid: rgba(28, 110, 158, 0.99);
+    --hero-g1: #123a6b;
+    --hero-g2: #245a94;
+    --hero-g3: #1c4a7d;
+    --hero-g4: #0e1e33;
+    --glow-accent: rgba(147, 197, 238, 0.3);
+    --glow-gold: rgba(240, 168, 68, 0.2);
+    --glow-teal: rgba(43, 136, 160, 0.35);
+    --footer-g1: #0e2f55;
+    --footer-g2: #0a2340;
+    --footer-g3: #0b2c3d;
+    --auth-g1: #14417a;
+    --auth-g2: #2b6cb0;
+    --sec-bg: #eef6fc;
+    --sec-bg-2: #f2f8fd;
+    --sec-bg-3: #e8f2fa;
+    --sec-bg-4: #fbfdff;
+    --icon-soft-1: #e3eef9;
+    --icon-soft-2: #cfe3f4;
+    --card-soft-1: #f0f6fc;
+    --card-soft-2: #e8f1f9;
+    --card-soft-3: #eff5fb;
+}
+
+[data-color-theme="blue"] .dashboard-body {
+    --dash-bg: #eef3f8;
+    --dash-sidebar-1: #0d2c4e;
+    --dash-sidebar-2: #1b4570;
+    --dash-sidebar-3: #2b6cb0;
+}
+
+/* ===== ثيم: تركواز ===== */
+[data-color-theme="teal"] {
+    --primary: #0f766e;
+    --primary-dark: #115e56;
+    --accent: #7de3c9;
+    --accent-soft: #e0f5ee;
+    --gold: #d4a21f;
+    --gold-soft: #faf0d8;
+    --light: #f1faf8;
+    --dark: #092e2b;
+    --text: #26504b;
+    --teal: #0d9488;
+    --teal-deep: #0f766e;
+    --sky: #0e7490;
+    --sky-soft: #dff3f8;
+    --sun: #e9b21c;
+    --sun-soft: #faf1d9;
+    --rose: #2f9e7e;
+    --rose-soft: #dff3ea;
+    --grape: #1d7a74;
+    --grape-soft: #e0f2ef;
+    --clay: #b8553c;
+    --clay-soft: #fbeae4;
+    --nav-g1: rgba(8, 62, 58, 0.95);
+    --nav-g2: rgba(13, 116, 105, 0.95);
+    --nav-g1-solid: rgba(8, 62, 58, 0.99);
+    --nav-g2-solid: rgba(13, 116, 105, 0.99);
+    --hero-g1: #0b3f3a;
+    --hero-g2: #115e56;
+    --hero-g3: #0e554f;
+    --hero-g4: #072320;
+    --glow-accent: rgba(125, 227, 201, 0.3);
+    --glow-gold: rgba(212, 162, 31, 0.2);
+    --glow-teal: rgba(13, 148, 136, 0.38);
+    --footer-g1: #0a3a36;
+    --footer-g2: #072b28;
+    --footer-g3: #083534;
+    --auth-g1: #115e56;
+    --auth-g2: #0f766e;
+    --sec-bg: #ebf8f5;
+    --sec-bg-2: #eef9f7;
+    --sec-bg-3: #e3f5f1;
+    --sec-bg-4: #fbfefd;
+    --icon-soft-1: #ddf4ee;
+    --icon-soft-2: #c8ece2;
+    --card-soft-1: #eef9f6;
+    --card-soft-2: #e2f3ee;
+    --card-soft-3: #edf8f5;
+}
+
+[data-color-theme="teal"] .dashboard-body {
+    --dash-bg: #edf4f2;
+    --dash-sidebar-1: #0b3a36;
+    --dash-sidebar-2: #0f5e57;
+    --dash-sidebar-3: #0d9488;
+}
+
+/* ===== ثيم: بنفسجي ===== */
+[data-color-theme="purple"] {
+    --primary: #5b3b8e;
+    --primary-dark: #3c2463;
+    --accent: #b9a0e3;
+    --accent-soft: #f1ebfb;
+    --gold: #d4a017;
+    --gold-soft: #faf1d8;
+    --light: #f7f5fc;
+    --dark: #17112b;
+    --text: #3a3054;
+    --teal: #7c53c0;
+    --teal-deep: #5f3d97;
+    --sky: #8b5cf6;
+    --sky-soft: #ede8fc;
+    --sun: #e6b54a;
+    --sun-soft: #faf0d8;
+    --rose: #bb5fa0;
+    --rose-soft: #faeef6;
+    --grape: #6d28d9;
+    --grape-soft: #efe8fc;
+    --clay: #c1506a;
+    --clay-soft: #fdeaf0;
+    --nav-g1: rgba(49, 28, 82, 0.95);
+    --nav-g2: rgba(102, 60, 165, 0.95);
+    --nav-g1-solid: rgba(49, 28, 82, 0.99);
+    --nav-g2-solid: rgba(102, 60, 165, 0.99);
+    --hero-g1: #2a1a47;
+    --hero-g2: #4a2e7d;
+    --hero-g3: #37205f;
+    --hero-g4: #14091f;
+    --glow-accent: rgba(185, 160, 227, 0.3);
+    --glow-gold: rgba(212, 160, 23, 0.18);
+    --glow-teal: rgba(124, 83, 192, 0.4);
+    --footer-g1: #251640;
+    --footer-g2: #1b0e32;
+    --footer-g3: #22133c;
+    --auth-g1: #3c2463;
+    --auth-g2: #5b3b8e;
+    --sec-bg: #f0ecf9;
+    --sec-bg-2: #f4f1fa;
+    --sec-bg-3: #eae4f6;
+    --sec-bg-4: #fdfcff;
+    --icon-soft-1: #ece4f8;
+    --icon-soft-2: #dccdf0;
+    --card-soft-1: #f3effa;
+    --card-soft-2: #e9e3f5;
+    --card-soft-3: #f1ecf9;
+}
+
+[data-color-theme="purple"] .dashboard-body {
+    --dash-bg: #f1eff6;
+    --dash-sidebar-1: #24153d;
+    --dash-sidebar-2: #3c2865;
+    --dash-sidebar-3: #5b3b8e;
+}
+
+/* ===== ثيم: ذهبي ===== */
+[data-color-theme="gold"] {
+    --primary: #9c7416;
+    --primary-dark: #6e5010;
+    --accent: #e8c86a;
+    --accent-soft: #faf2dd;
+    --gold: #c9a227;
+    --gold-soft: #f6ecd0;
+    --light: #fbf7ec;
+    --dark: #2a210f;
+    --text: #52452a;
+    --teal: #b08c2a;
+    --teal-deep: #8f711f;
+    --sky: #6a8d2f;
+    --sky-soft: #eff4df;
+    --sun: #d4a53f;
+    --sun-soft: #f6ecd0;
+    --rose: #a3752a;
+    --rose-soft: #f6ead8;
+    --grape: #7a6218;
+    --grape-soft: #f1ead6;
+    --clay: #c14b3a;
+    --clay-soft: #fdeae6;
+    --nav-g1: rgba(78, 56, 8, 0.95);
+    --nav-g2: rgba(135, 100, 26, 0.95);
+    --nav-g1-solid: rgba(78, 56, 8, 0.99);
+    --nav-g2-solid: rgba(135, 100, 26, 0.99);
+    --hero-g1: #6e5010;
+    --hero-g2: #9c7416;
+    --hero-g3: #7f5f12;
+    --hero-g4: #3a2a08;
+    --glow-accent: rgba(232, 200, 106, 0.32);
+    --glow-gold: rgba(212, 165, 63, 0.26);
+    --glow-teal: rgba(176, 140, 42, 0.35);
+    --footer-g1: #4d3a0c;
+    --footer-g2: #3a2a08;
+    --footer-g3: #45330b;
+    --auth-g1: #6e5010;
+    --auth-g2: #9c7416;
+    --sec-bg: #f7f1df;
+    --sec-bg-2: #f9f4e4;
+    --sec-bg-3: #f3ecce;
+    --sec-bg-4: #fefcf5;
+    --icon-soft-1: #f5ecd4;
+    --icon-soft-2: #ecdfae;
+    --card-soft-1: #f9f3e3;
+    --card-soft-2: #f2e9d2;
+    --card-soft-3: #f8f2e2;
+}
+
+[data-color-theme="gold"] .dashboard-body {
+    --dash-bg: #f5f1e6;
+    --dash-sidebar-1: #3f2e08;
+    --dash-sidebar-2: #6e5010;
+    --dash-sidebar-3: #9c7416;
+}
+
+/* ===== ثيم: وردي (أحمر/مرجاني) ===== */
+[data-color-theme="rose"] {
+    --primary: #b03a48;
+    --primary-dark: #7d2733;
+    --accent: #f09d8a;
+    --accent-soft: #fbeae6;
+    --gold: #d9a035;
+    --gold-soft: #faf0d8;
+    --light: #fcf5f3;
+    --dark: #2a1014;
+    --text: #55313a;
+    --teal: #c17a65;
+    --teal-deep: #99594a;
+    --sky: #c25b7a;
+    --sky-soft: #fae9ee;
+    --sun: #e5b54a;
+    --sun-soft: #faf0d8;
+    --rose: #c05267;
+    --rose-soft: #f9e7ec;
+    --grape: #97496b;
+    --grape-soft: #f4e6ec;
+    --clay: #d65a3a;
+    --clay-soft: #fdeae2;
+    --nav-g1: rgba(94, 24, 40, 0.95);
+    --nav-g2: rgba(168, 52, 74, 0.95);
+    --nav-g1-solid: rgba(94, 24, 40, 0.99);
+    --nav-g2-solid: rgba(168, 52, 74, 0.99);
+    --hero-g1: #6d1f2e;
+    --hero-g2: #a53545;
+    --hero-g3: #8a2b3a;
+    --hero-g4: #2a0f16;
+    --glow-accent: rgba(240, 157, 138, 0.3);
+    --glow-gold: rgba(217, 160, 53, 0.2);
+    --glow-teal: rgba(193, 122, 101, 0.35);
+    --footer-g1: #521a26;
+    --footer-g2: #3d0f1a;
+    --footer-g3: #421320;
+    --auth-g1: #7d2733;
+    --auth-g2: #b03a48;
+    --sec-bg: #f8ece9;
+    --sec-bg-2: #faf0ee;
+    --sec-bg-3: #f5e6e1;
+    --sec-bg-4: #fefcfb;
+    --icon-soft-1: #f7e4e0;
+    --icon-soft-2: #f0cfc8;
+    --card-soft-1: #faf1ee;
+    --card-soft-2: #f4e6e2;
+    --card-soft-3: #f9f0ec;
+}
+
+[data-color-theme="rose"] .dashboard-body {
+    --dash-bg: #f5eff0;
+    --dash-sidebar-1: #45121f;
+    --dash-sidebar-2: #7d2733;
+    --dash-sidebar-3: #b03a48;
+}
+
+/* ============================================================
+   واجهة اختيار الألوان
+   ============================================================ */
+.theme-picker {
+    position: relative;
+}
+
+.theme-picker-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.theme-picker-btn:hover {
+    background: rgba(255, 255, 255, 0.24);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* زر الثيم داخل لوحة التحكم (خلفية فاتحة) */
+.theme-picker-btn.dash-picker-btn {
+    border: 1px solid var(--dash-border, #e3e9e5);
+    background: var(--dash-card, #fff);
+    color: var(--primary, #2d6a4f);
+    box-shadow: var(--dash-shadow, 0 2px 8px rgba(23, 43, 34, 0.04));
+}
+
+.theme-picker-btn.dash-picker-btn:hover {
+    background: var(--dash-ghost-hover, #f0f4f1);
+    border-color: var(--primary, #2d6a4f);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* ثيم عائم لصفحة تسجيل الدخول */
+.theme-picker-float {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 400;
+}
+
+.theme-picker-float .theme-picker-menu {
+    right: auto;
+    left: 0;
+}
+
+.theme-picker-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: auto;
+    min-width: 172px;
+    background: #ffffff;
+    border: 1px solid var(--dash-border, #e3e9e5);
+    border-radius: 14px;
+    box-shadow: 0 18px 44px rgba(10, 26, 19, 0.22);
+    padding: 12px;
+    display: none;
+    z-index: 500;
+}
+
+.theme-picker.dash-theme-picker .theme-picker-menu {
+    right: auto;
+    left: 0;
+}
+
+.theme-picker.open .theme-picker-menu {
+    display: block;
+    animation: tpDropIn 0.22s ease;
+}
+
+@keyframes tpDropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-picker-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #8a8f92;
+    margin: 0 0 9px;
+    text-align: right;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-swatches {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.theme-swatch {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--dash-border, #dfe5e1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    background: var(--sw, #eef1ef);
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.theme-swatch:hover {
+    transform: scale(1.14);
+    box-shadow: 0 0 0 2px var(--primary, #2d6a4f), 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.theme-swatch.active {
+    box-shadow: 0 0 0 2px var(--gold, #c9a227), 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+}
+
+.theme-swatch.active::after {
+    content: "✓";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 900;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.theme-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--dash-muted, #7b8b83);
+    text-align: center;
+    margin-top: 2px;
+}
+
+/* ===== لوحة التحكم: قسم المظهر والألوان ===== */
+.dash-appearance-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 6px 2px;
+}
+
+.dash-appearance-swatches {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.dash-appearance-swatches .theme-swatch {
+    width: 50px;
+    height: 50px;
+}
+
+.dash-appearance-name {
+    font-weight: 800;
+    color: var(--primary, #2d6a4f);
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* توافق مع القائمة المنسدلة على الجوال */
+@media (max-width: 900px) {
+    .theme-picker-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .theme-picker-menu {
+        position: fixed;
+        top: auto;
+        right: 12px;
+        left: 12px;
+        bottom: 14px;
+        width: auto;
+    }
+    .theme-swatches {
+        justify-content: center;
+    }
+    .theme-picker.dash-theme-picker .theme-picker-menu {
+        left: auto;
+    }
+}
