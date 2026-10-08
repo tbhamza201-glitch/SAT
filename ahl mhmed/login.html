@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول — أهل محمد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="auth.css?v=4">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-wrap">
+        <div class="auth-card">
+            <div class="auth-head">
+                <span class="auth-logo">🔐</span>
+                <h1>قرية أهل محمد</h1>
+                <p>أدخل الكود السري للوصول إلى لوحة التحكم</p>
+            </div>
+
+            <form id="codeLoginForm" class="auth-form">
+                <h2>الكود السري</h2>
+                <div class="form-group">
+                    <label for="codeEntry">كود الدخول</label>
+                    <input type="password" id="codeEntry" class="dash-input auth-input" placeholder="الكود السري للوحة التحكم" autocomplete="off" required autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">دخول إلى اللوحة</button>
+                <p id="codeMsg" class="auth-msg"></p>
+            </form>
+
+            <a href="index.html" class="auth-back">← العودة إلى الموقع</a>
+        </div>
+    </div>
+
+    <script src="auth.js?v=4"></script>
+    <script src="themes.js"></script>
+</body>
+</html>

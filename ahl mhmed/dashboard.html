@@ -1,0 +1,917 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم — أهل محمد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="dashboard.css?v=5">
+    <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- ===== الشريط الجانبي ===== -->
+    <aside class="dash-sidebar">
+        <div class="dash-brand">
+            <div class="dash-brand-logo">🕌</div>
+            <div class="dash-brand-text">
+                <strong>أهل محمد</strong>
+                <span>لوحة التحكم</span>
+            </div>
+        </div>
+
+        <div class="dash-side-scroll">
+            <p class="dash-nav-label">الإدارة</p>
+            <nav class="dash-nav">
+                <button class="dash-nav-item active" data-view="overview" data-title="نظرة عامة" data-icon="📊">
+                    <span class="nav-ico">📊</span> نظرة عامة
+                </button>
+                <button class="dash-nav-item" data-view="content" data-title="المحتوى العام" data-icon="📝">
+                    <span class="nav-ico">📝</span> المحتوى العام
+                </button>
+                <button class="dash-nav-item" data-view="shop" data-title="المتجر" data-icon="🛍️">
+                    <span class="nav-ico">🛍️</span> المتجر
+                </button>
+                <button class="dash-nav-item" data-view="contact" data-title="الرسائل الواردة" data-icon="📩">
+                    <span class="nav-ico">📩</span> الرسائل
+                </button>
+                <button class="dash-nav-item" data-view="analytics" data-title="تحليلات الزوار" data-icon="📈">
+                    <span class="nav-ico">📈</span> تحليلات الزوار
+                </button>
+            </nav>
+
+            <p class="dash-nav-label">محتوى الموقع</p>
+            <nav class="dash-nav">
+                <button class="dash-nav-item" data-view="about" data-title="عن القرية" data-icon="ℹ️">
+                    <span class="nav-ico">ℹ️</span> عن القرية
+                </button>
+                <button class="dash-nav-item" data-view="history" data-title="تاريخ القرية" data-icon="📜">
+                    <span class="nav-ico">📜</span> تاريخ القرية
+                </button>
+                <button class="dash-nav-item" data-view="residents" data-title="سكان القرية" data-icon="👨‍👩‍👧‍👦">
+                    <span class="nav-ico">👨‍👩‍👧‍👦</span> سكان القرية
+                </button>
+                <button class="dash-nav-item" data-view="deceased" data-title="موتانا" data-icon="🤲">
+                    <span class="nav-ico">🤲</span> موتانا
+                </button>
+                <button class="dash-nav-item" data-view="services" data-title="الخدمات" data-icon="🛠️">
+                    <span class="nav-ico">🛠️</span> الخدمات
+                </button>
+                <button class="dash-nav-item" data-view="prayer" data-title="مواقيت الصلاة" data-icon="🕌">
+                    <span class="nav-ico">🕌</span> مواقيت الصلاة
+                </button>
+                <button class="dash-nav-item" data-view="articles" data-title="المقالات والنشر" data-icon="📰">
+                    <span class="nav-ico">📰</span> المقالات والنشر
+                </button>
+                <button class="dash-nav-item" data-view="article-write" data-title="إضافة مقال جديد" data-icon="✍️">
+                    <span class="nav-ico">✍️</span> إضافة مقال جديد
+                </button>
+                <button class="dash-nav-item" data-view="article-manage" data-title="كل المقالات" data-icon="🗂️">
+                    <span class="nav-ico">🗂️</span> كل المقالات
+                </button>
+                <button class="dash-nav-item" data-view="news-about" data-title="حول أخبار القرية" data-icon="🗞️">
+                    <span class="nav-ico">🗞️</span> حول أخبار القرية
+                </button>
+                <button class="dash-nav-item" data-view="layout" data-title="التنقل والترتيب" data-icon="🧭">
+                    <span class="nav-ico">🧭</span> التنقل والترتيب
+                </button>
+                <button class="dash-nav-item" data-view="seo" data-title="SEO للموقع" data-icon="🔍">
+                    <span class="nav-ico">🔍</span> SEO للموقع
+                </button>
+            </nav>
+
+            <p class="dash-nav-label">الإعدادات</p>
+            <nav class="dash-nav">
+                <button class="dash-nav-item" data-view="appearance" data-title="المظهر والألوان" data-icon="🎨">
+                    <span class="nav-ico">🎨</span> المظهر والألوان
+                </button>
+            </nav>
+        </div>
+
+        <div class="dash-side-bottom">
+            <a href="index.html" class="btn-view-site">
+                <span>👁️</span> عرض الموقع
+            </a>
+            <div class="dash-user">
+                <span class="dash-user-name" id="dashUserName">👤</span>
+                <button id="logoutBtn" class="btn-logout">
+                    <span>↩</span> تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== المحتوى الرئيسي ===== -->
+    <main class="dash-main">
+
+        <!-- الشريط العلوي -->
+        <header class="dash-topbar">
+            <div class="dash-page-head">
+                <div class="dash-page-icon" id="dashPageIcon">📊</div>
+                <div class="dash-page-titles">
+                    <p class="dash-breadcrumb">لوحة التحكم</p>
+                    <h1 id="dashPageTitle">نظرة عامة</h1>
+                </div>
+            </div>
+            <div class="dash-actions">
+                <div class="theme-picker dash-theme-picker" data-theme-picker>
+                    <button class="theme-picker-btn dash-picker-btn" type="button" aria-label="ألوان لوحة التحكم" title="ألوان الواجهة">🎨</button>
+                </div>
+                <button id="resetBtn" class="btn btn-ghost" title="استعادة الافتراضي">
+                    ↺ <span class="act-txt">استعادة الافتراضي</span>
+                </button>
+                <button id="saveBtn" class="btn btn-primary btn-save">
+                    💾 <span>حفظ التغييرات</span>
+                </button>
+            </div>
+            <div id="saveMsg" class="save-msg"></div>
+        </header>
+
+        <!-- نظرة عامة -->
+        <section class="dash-view active" data-view-panel="overview">
+            <div class="overview-cards">
+                <div class="ov-card ov-card-pop">
+                    <div class="ov-top">
+                        <span class="ov-icon">🏘️</span>
+                        <span class="ov-badge">سكان</span>
+                    </div>
+                    <p id="ovPopulation">1500</p>
+                    <span class="ov-label">إجمالي نسمة القرية</span>
+                </div>
+                <div class="ov-card ov-card-fam">
+                    <div class="ov-top">
+                        <span class="ov-icon">👪</span>
+                        <span class="ov-badge">أسر</span>
+                    </div>
+                    <p id="ovFamilies">500</p>
+                    <span class="ov-label">عدد العائلات</span>
+                </div>
+                <div class="ov-card ov-card-srv">
+                    <div class="ov-top">
+                        <span class="ov-icon">🛠️</span>
+                        <span class="ov-badge">خدمات</span>
+                    </div>
+                    <p id="ovServices">1</p>
+                    <span class="ov-label">خدمات معروضة</span>
+                </div>
+                <div class="ov-card ov-card-msg">
+                    <div class="ov-top">
+                        <span class="ov-icon">📩</span>
+                        <span class="ov-badge">رسائل</span>
+                    </div>
+                    <p id="ovMessages">0</p>
+                    <span class="ov-label">رسائل واردة</span>
+                </div>
+                <div class="ov-card ov-card-art">
+                    <div class="ov-top">
+                        <span class="ov-icon">📰</span>
+                        <span class="ov-badge">مقالات</span>
+                    </div>
+                    <p id="ovArticles">0</p>
+                    <span class="ov-label">مقالات منشورة</span>
+                </div>
+                <div class="ov-card ov-card-vis">
+                    <div class="ov-top">
+                        <span class="ov-icon">👥</span>
+                        <span class="ov-badge">زوار</span>
+                    </div>
+                    <p id="ovVisits">0</p>
+                    <span class="ov-label">زوار الموقع — <span id="ovVisitsToday">0</span> اليوم</span>
+                </div>
+            </div>
+
+            <div class="dash-card countries-card">
+                <div class="dash-card-title">🌍 زوار الموقع حسب البلد</div>
+                <p class="dash-card-tip">يتحدّد بلد الزائر تلقائياً عند زيارته للموقع، ويُعرض تلخيص هنا بعد نشر الموقع على الاستضافة (PHP).</p>
+                <div id="ovCountries" class="ov-countries"></div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>⚡ وصول سريع</h3>
+                <div class="quick-grid">
+                    <button class="quick-btn" data-goto="content">
+                        <span>📝</span> تعديل المحتوى
+                    </button>
+                    <button class="quick-btn" data-goto="shop">
+                        <span>🛍️</span> إدارة المتجر
+                    </button>
+                    <button class="quick-btn" data-goto="services">
+                        <span>🛠️</span> الخدمات
+                    </button>
+                    <button class="quick-btn" data-goto="articles">
+                        <span>📰</span> كتابة مقال
+                    </button>
+                    <button class="quick-btn" data-goto="contact">
+                        <span>📩</span> الرسائل
+                    </button>
+                    <button class="quick-btn" data-goto="layout">
+                        <span>🧭</span> ترتيب التنقل
+                    </button>
+                </div>
+            </div>
+
+            <div class="hint-box">
+                <h4>💡 كيف يعمل هذا النظام؟</h4>
+                <p>
+                    يتم حفظ جميع التغييرات في متصفحك (التخزين المحلي). لتحديث الموقع،
+                    عدّل المحتوى ثم اضغط "حفظ التغييرات". تعود الصفحة الرئيسية لتعرض
+                    البيانات المحفوظة تلقائياً.
+                </p>
+                <p>
+                    ملاحظة: يتم الحفظ في متصفحك فقط (localStorage)، وليس على خادم.
+                    لتحقيق حفظ دائم لجميع الزوار، ستحتاج إلى ربط الموقع بقاعدة بيانات
+                    ونظام خلفية (Backend).
+                </p>
+            </div>
+
+            <div class="dash-card transfer-card">
+                <div class="dash-card-title">📦 نقل البيانات والنسخ الاحتياطي</div>
+                <p id="cloudStatus" class="cloud-status"></p>
+                <p class="transfer-hint">
+                    منتجاتك وصورك ونصوصك مخزّنة في هذا المتصفح فقط. صدّرها كملف ثم استوردها
+                    داخل الاستضافة (أو أي متصفح آخر) لتظهر الصور والبيانات نفسها.
+                </p>
+                <div class="transfer-actions">
+                    <button id="exportBtn" class="btn btn-primary">⤓ تصدير البيانات</button>
+                    <label class="btn btn-ghost btn-import-label">
+                        ⤒ استيراد البيانات
+                        <input type="file" id="importFile" accept=".json,application/json" hidden>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- المحتوى -->
+        <section class="dash-view" data-view-panel="content">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">📝</span>
+                <div>
+                    <h2>المحتوى العام</h2>
+                    <p>المعلومات الأساسية للقرية التي تظهر في التذييل وخلال الموقع.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="field">
+                    <label>اسم القرية</label>
+                    <input type="text" id="siteName" class="dash-input">
+                </div>
+                <div class="field">
+                    <label>وصف قصير (يظهر في التذييل)</label>
+                    <input type="text" id="siteTagline" class="dash-input">
+                </div>
+                <div class="stats-row">
+                    <div class="field">
+                        <label>البريد الإلكتروني</label>
+                        <input type="text" id="contactEmail" class="dash-input">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>موقع القرية / التبعية الإدارية</label>
+                    <input type="text" id="locationText" class="dash-input">
+                </div>
+            </div>
+        </section>
+
+        <!-- عن القرية -->
+        <section class="dash-view" data-view-panel="about">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">ℹ️</span>
+                <div>
+                    <h2>عن القرية</h2>
+                    <p>النصوص والإحصائيات المعروضة في قسم "عن القرية".</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="field">
+                    <label>الفقرة الأولى</label>
+                    <textarea id="aboutP1" class="dash-input" rows="4"></textarea>
+                </div>
+                <div class="field">
+                    <label>الفقرة الثانية</label>
+                    <textarea id="aboutP2" class="dash-input" rows="4"></textarea>
+                </div>
+                <div class="field">
+                    <label>الأهمية الاقتصادية — الفقرة الأولى</label>
+                    <textarea id="aboutP3" class="dash-input" rows="4"></textarea>
+                </div>
+                <div class="field">
+                    <label>الأهمية الاقتصادية — الفقرة الثانية</label>
+                    <textarea id="aboutP4" class="dash-input" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">الإحصائيات</div>
+                <div class="stats-row">
+                    <div class="field">
+                        <label>النسمة</label>
+                        <input type="number" id="statPop" class="dash-input">
+                    </div>
+                    <div class="field">
+                        <label>الأسرة</label>
+                        <input type="number" id="statFam" class="dash-input">
+                    </div>
+                    <div class="field">
+                        <label>سنوات التاريخ</label>
+                        <input type="number" id="statYears" class="dash-input">
+                    </div>
+                </div>
+            </div>
+        <div class="dash-card">
+                <div class="dash-card-title">🗂️ أقسام إضافية في "عن القرية"</div>
+                <p class="dash-card-tip">أضف أقساماً جديدة (أيقونة + عنوان + نص) تظهر داخل قسم "عن القرية" في الموقع بعد "سكان القرية".</p>
+                <div id="aboutSectionsEditor" class="services-editor"></div>
+                <button id="addAboutSection" class="btn btn-add">+ إضافة قسم</button>
+            </div>
+        </section>
+
+        <!-- تاريخ القرية -->
+        <section class="dash-view" data-view-panel="history">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">📜</span>
+                <div>
+                    <h2>تاريخ القرية</h2>
+                    <p>أضف الوقائع والأحداث التاريخية المهمة عن القرية.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div id="historyEditor" class="services-editor"></div>
+                <button id="addHistory" class="btn btn-add">+ إضافة واقعة تاريخية</button>
+            </div>
+        </section>
+
+        <!-- الخدمات -->
+        <section class="dash-view" data-view-panel="services">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🛠️</span>
+                <div>
+                    <h2>الخدمات</h2>
+                    <p>أدر خدمات القرية (دروس خصوصية وحلويات) المعروضة في الموقع.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div id="servicesEditor" class="services-editor"></div>
+                <button id="addService" class="btn btn-add">+ إضافة خدمة</button>
+            </div>
+        </section>
+
+        <!-- مواقيت الصلاة -->
+        <section class="dash-view" data-view-panel="prayer">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🕌</span>
+                <div>
+                    <h2>مواقيت الصلاة</h2>
+                    <p>عدّل أوقات الصلاة. البطاقة البارزة تُفعَّل من خيار "بارز".</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div id="prayerEditor" class="services-editor"></div>
+                <button id="addPrayer" class="btn btn-add">+ إضافة وقت صلاة</button>
+            </div>
+        </section>
+
+        <!-- المقالات والنشر -->
+        <section class="dash-view" data-view-panel="articles">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">📰</span>
+                <div>
+                    <h2>المقالات والنشر</h2>
+                    <p>اكتب المقالات واختر قسم النشر الذي تُعرض فيه في صفحة أخبار القرية.</p>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-title">🗂️ أقسام النشر</div>
+                <p class="dash-card-tip">هذه هي الأقسام التي تختار منها قسم نشر كل مقال (الأيقونة، الاسم، اللون).</p>
+                <div id="sectionsEditor" class="services-editor"></div>
+                <button id="addArticleSection" class="btn btn-add">+ إضافة قسم نشر</button>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-title" id="articleFormTitle">✍️ كتابة مقال</div>
+                <div class="article-form">
+                    <input type="hidden" id="articleEditIndex" value="" data-confirm="off">
+                    <div class="article-form-grid">
+                        <div class="field">
+                            <label>أيقونة المقال (إيموجي)</label>
+                            <input type="text" id="artIcon" class="dash-input" maxlength="4" value="📰">
+                        </div>
+                        <div class="field">
+                            <label>عنوان المقال</label>
+                            <input type="text" id="artTitle" class="dash-input" placeholder="عنوان المقال">
+                        </div>
+                        <div class="field">
+                            <label>قسم النشر</label>
+                            <select id="artTag" class="dash-input"></select>
+                        </div>
+                        <div class="field">
+                            <label>تاريخ النشر</label>
+                            <input type="text" id="artDate" class="dash-input" placeholder="مثال: 06 سبتمبر 2026">
+                        </div>
+                        <div class="field">
+                            <label>حجم الخط</label>
+                            <select id="artFontSize" class="dash-input">
+                                <option value="small">صغير</option>
+                                <option value="normal" selected>عادي</option>
+                                <option value="large">كبير</option>
+                                <option value="xlarge">كبير جداً</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>صورة المقال</label>
+                        <div class="art-img-row">
+                            <div class="shop-thumb" id="artImgPreview">
+                                <span class="shop-thumb-empty">لا صورة</span>
+                            </div>
+                            <div class="shop-img-fields">
+                                <div class="art-upload-row">
+                                    <label class="btn-upload">
+                                        📁 رفع صورة من الجهاز
+                                        <input type="file" id="artImageUpload" accept="image/*" hidden>
+                                    </label>
+                                    <button type="button" id="artImageRemove" class="btn-upload btn-upload-ghost" style="display:none">🗑 إزالة الصورة</button>
+                                </div>
+                                <input type="text" id="artImageUrl" class="dash-input" placeholder="أو الصق رابط صورة https://...">
+                                <input type="hidden" id="artImageData" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>لون نص المقال</label>
+                        <div class="color-swatches" id="artColorSwatches">
+                            <button type="button" class="swatch swatch-auto active" data-color="auto">تلقائي</button>
+                            <button type="button" class="swatch" data-color="#1c4d37" style="--sw:#1c4d37" title="أخضر داكن"></button>
+                            <button type="button" class="swatch" data-color="#8a6a10" style="--sw:#8a6a10" title="ذهبي"></button>
+                            <button type="button" class="swatch" data-color="#1d63a8" style="--sw:#1d63a8" title="أزرق"></button>
+                            <button type="button" class="swatch" data-color="#0f766e" style="--sw:#0f766e" title="سماوي"></button>
+                            <button type="button" class="swatch" data-color="#7b4a12" style="--sw:#7b4a12" title="بني"></button>
+                            <button type="button" class="swatch" data-color="#6d28a0" style="--sw:#6d28a0" title="بنفسجي"></button>
+                            <button type="button" class="swatch" data-color="#a93226" style="--sw:#a93226" title="أحمر"></button>
+                            <button type="button" class="swatch" data-color="#5b6d62" style="--sw:#5b6d62" title="رمادي"></button>
+                            <button type="button" class="swatch swatch-custom" data-color="custom" title="لون مخصص">🎨</button>
+                            <input type="color" id="artTextColorCustom" class="swatch-custom-input" value="#1c4d37" title="اختر لوناً">
+                        </div>
+                        <input type="hidden" id="artTextColor" value="auto">
+                        <p class="dash-card-tip" style="margin:8px 0 0">يُطبَّق هذا اللون على نص المقال في صفحة الأخبار.</p>
+                    </div>
+                    <div class="field">
+                        <label>نص المقال</label>
+                        <textarea id="artText" class="dash-input" rows="5" placeholder="اكتب نص المقال هنا..."></textarea>
+                    </div>
+                    <div class="article-form-actions">
+                        <button id="addArticleBtn" class="btn btn-primary">➕ إضافة المقال</button>
+                        <button id="cancelArticleEdit" class="btn btn-ghost" style="display:none">إلغاء التعديل</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-title">📑 المقالات المنشورة</div>
+                <div id="articlesEditor" class="services-editor"></div>
+                <p class="empty-msg" id="noArticlesMsg">لا توجد مقالات بعد. اكتب مقالك أعلاه ثم اضغط "إضافة المقال".</p>
+            </div>
+        </section>
+
+        <!-- إضافة مقال جديد (محرر احترافي) -->
+        <section class="dash-view" data-view-panel="article-write">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">✍️</span>
+                <div>
+                    <h2>إضافة مقال جديد</h2>
+                    <p>اكتب المقال ونسّقه بالكامل، حسّن SEO، معاينة، ثم انشر أو احفظ كمسودة.</p>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="ce-top-grid">
+                    <div class="field">
+                        <label>عنوان المقال *</label>
+                        <input type="text" id="aTitle" class="dash-input" placeholder="اكتب عنوان المقال...">
+                    </div>
+                    <div class="field">
+                        <label>التصنيف</label>
+                        <select id="aCategory" class="dash-input"></select>
+                    </div>
+                    <div class="field">
+                        <label>الوصف المختصر (يظهر في البطاقات)</label>
+                        <input type="text" id="aExcerpt" class="dash-input" placeholder="سطر واحد يلخص المقال...">
+                    </div>
+                    <div class="field">
+                        <label>الوسوم Tags (يفصل بينها بفاصلة)</label>
+                        <input type="text" id="aTags" class="dash-input" placeholder="فرصة, تنمية, فلاحة">
+                    </div>
+                    <div class="field">
+                        <label>اسم الكاتب</label>
+                        <input type="text" id="aAuthor" class="dash-input" placeholder="اسم الكاتب">
+                    </div>
+                    <div class="field">
+                        <label>تاريخ النشر</label>
+                        <input type="text" id="aDate" class="dash-input" placeholder="مثال: 16 سبتمبر 2026">
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="dash-card-title">🖼️ صورة المقال الرئيسية</div>
+                <div class="shop-thumb" id="aCoverPreview">
+                    <span class="shop-thumb-empty">لا صورة</span>
+                </div>
+                <div class="field" style="margin-top:10px">
+                    <label class="btn-upload">
+                        📁 رفع صورة من الجهاز
+                        <input type="file" id="aCoverFile" accept="image/*" hidden>
+                    </label>
+                    <input type="text" id="aCoverUrl" class="dash-input" style="margin-top:8px" placeholder="أو الصق رابط الصورة https://...">
+                    <input type="hidden" id="aCoverData" value="">
+                    <button type="button" id="aCoverRemove" class="btn btn-ghost" style="margin-top:8px">🗑 إزالة الصورة</button>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>حالة المقال</label>
+                <input type="hidden" id="aStatus" value="published">
+                <div class="ce-status-toggle">
+                    <button type="button" class="ce-status-btn active-pub" id="cePub">🚀 منشور</button>
+                    <button type="button" class="ce-status-btn" id="ceDrf">📥 مسودة</button>
+                </div>
+            </div>
+
+            <div class="rte-wrap">
+                <div class="rte-toolbar" id="rteToolbar">
+                    <select id="rteFont" class="dash-input rte-font-sel"><option value="">— الخط —</option></select>
+                    <select id="rteSize" class="dash-input rte-size-sel"><option value="">— الحجم —</option></select>
+                    <button type="button" class="rte-btn" id="rteFontUp" title="تكبير الخط">A+</button>
+                    <button type="button" class="rte-btn" id="rteFontDown" title="تصغير الخط">A−</button>
+                    <span class="rte-sep"></span>
+                    <button type="button" class="rte-btn" id="rteBold" title="غامق (Ctrl+B)"><b>B</b></button>
+                    <button type="button" class="rte-btn" id="rteItalic" title="مائل (Ctrl+I)"><i>I</i></button>
+                    <button type="button" class="rte-btn" id="rteUnderline" title="تحته خط (Ctrl+U)"><u>U</u></button>
+                    <button type="button" class="rte-btn" id="rteStrike" title="مشطوب"><s>S</s></button>
+                    <span class="rte-sep"></span>
+                    <label class="rte-color-wrap" title="لون النص">
+                        <span class="rte-color-swatch">A</span>
+                        <input type="color" id="rteFgColor" value="#1c4d37">
+                    </label>
+                    <label class="rte-color-wrap" title="لون خلفية النص">
+                        <span class="rte-color-swatch">▨</span>
+                        <input type="color" id="rteBgColor" value="#fdf6e3">
+                    </label>
+                    <input type="text" id="rteHexColor" class="dash-input rte-hex-input" placeholder="#1c4d37">
+                    <button type="button" class="rte-btn" id="rteHexApply" title="تطبيق لون HEX">تطبيق</button>
+                    <span class="rte-sep"></span>
+                    <button type="button" class="rte-btn" id="rteAlignRight" title="محاذاة يمين">→|</button>
+                    <button type="button" class="rte-btn" id="rteAlignCenter" title="محاذاة وسط">↔</button>
+                    <button type="button" class="rte-btn" id="rteAlignLeft" title="محاذاة يسار">|←</button>
+                    <button type="button" class="rte-btn" id="rteAlignJustify" title="ضبط (Justify)">☰</button>
+                    <span class="rte-sep"></span>
+                    <select id="rteHeading" class="dash-input">
+                        <option value="p">فقرة</option>
+                        <option value="h1">عنوان H1</option>
+                        <option value="h2">عنوان H2</option>
+                        <option value="h3">عنوان H3</option>
+                        <option value="h4">عنوان H4</option>
+                    </select>
+                    <span class="rte-sep"></span>
+                    <button type="button" class="rte-btn" id="rteOl" title="قائمة مرقمة">١.</button>
+                    <button type="button" class="rte-btn" id="rteUl" title="قائمة نقطية">•</button>
+                    <button type="button" class="rte-btn" id="rteIndent" title="زيادة المسافة البادئة">↣</button>
+                    <button type="button" class="rte-btn" id="rteOutdent" title="تقليل المسافة البادئة">↢</button>
+                    <span class="rte-sep"></span>
+                    <button type="button" class="rte-btn" id="rteLinkBtn" title="إدراج / تعديل رابط">🔗</button>
+                    <button type="button" class="rte-btn" id="rteUnlink" title="حذف الرابط">🔗✕</button>
+                    <button type="button" class="rte-btn" id="rteImgBtn" title="رفع صورة">🖼️</button>
+                    <button type="button" class="rte-btn" id="rteImgUrlBtn" title="صورة من رابط">🌐</button>
+                    <button type="button" class="rte-btn" id="rteVideoBtn" title="إدراج فيديو YouTube">🎬</button>
+                    <button type="button" class="rte-btn" id="rteTableBtn" title="إدراج جدول">▦</button>
+                    <button type="button" class="rte-btn" id="rteQuote" title="اقتباس">❝</button>
+                    <button type="button" class="rte-btn" id="rteCodeBtn" title="كتلة كود">&lt;/&gt;</button>
+                    <button type="button" class="rte-btn" id="rteHr" title="خط فاصل">─</button>
+                    <span class="rte-sep"></span>
+                    <button type="button" class="rte-btn" id="rteUndo" title="تراجع">↶</button>
+                    <button type="button" class="rte-btn" id="rteRedo" title="إعادة">↷</button>
+                    <button type="button" class="rte-btn" id="rteClear" title="إزالة التنسيق">✖</button>
+                    <input type="file" id="rteImgFile" accept="image/*" hidden>
+                </div>
+                <div class="img-actionbar" id="imgBar">
+                    <span>التحديد: صورة</span>
+                    <input type="number" id="imgWidth" class="dash-input" min="10" max="900" step="1" style="width:70px" title="العرض">
+                    <select id="imgWidthUnit" class="dash-input" style="width:62px">
+                        <option value="px">px</option>
+                        <option value="%">%</option>
+                    </select>
+                    <span class="rte-btn" data-align="right" title="صورة يمين">→|</span>
+                    <span class="rte-btn" data-align="center" title="صورة وسط">↔</span>
+                    <span class="rte-btn" data-align="left" title="صورة يسار">|←</span>
+                    <input type="text" id="imgAlt" placeholder="Alt Text">
+                    <input type="text" id="imgCaption" placeholder="Caption">
+                    <button type="button" class="rte-btn" id="imgReplaceBtn" title="استبدال الصورة">🔄</button>
+                    <input type="file" id="imgReplaceFile" accept="image/*" hidden>
+                    <button type="button" class="rte-btn" id="imgDeleteBtn" title="حذف الصورة">🗑️</button>
+                </div>
+                <div class="rte-editor" id="rteEditor" contenteditable="true" spellcheck="true" lang="ar"></div>
+            </div>
+
+            <div class="ce-stats">
+                <span class="ce-stat-chip">الكلمات: <b id="wCount">0</b></span>
+                <span class="ce-stat-chip">الأحرف: <b id="cCount">0</b></span>
+                <span class="ce-stat-chip">وقت القراءة: <b id="rTime">0 د</b></span>
+                <div class="ce-save-status" id="ceSaveStatus"><span class="dot"></span><span class="lbl"></span></div>
+            </div>
+
+            <div class="ce-edit-actions">
+                <button id="btnPublish" class="btn btn-primary">🚀 نشر المقال</button>
+                <button id="btnSaveDraft" class="btn btn-add">💾 حفظ كمسودة</button>
+                <button id="btnPreview" class="btn btn-ghost">👁️ معاينة</button>
+                <button id="btnNewArticle" class="btn btn-ghost">➕ مقال جديد</button>
+            </div>
+
+            <div class="dash-card" style="margin-top:20px">
+                <div class="dash-card-title">🔍 تحسين محركات البحث SEO</div>
+                <div class="seo-grid">
+                    <div class="field">
+                        <label>SEO Title</label>
+                        <input type="text" id="aSeoTitle" class="dash-input" placeholder="عنوان SEO (يُفضَّل أقل من 60 حرف)">
+                        <span class="seo-count" id="seoTitleCount">0 / 60</span>
+                    </div>
+                    <div class="field">
+                        <label>Meta Description</label>
+                        <textarea id="aSeoDesc" class="dash-input" rows="2" placeholder="وصف يظهر في نتائج البحث (أفضل أقل من 160 حرف)"></textarea>
+                        <span class="seo-count" id="seoDescCount">0 / 160</span>
+                    </div>
+                    <div class="field">
+                        <label>Focus Keyword</label>
+                        <input type="text" id="aSeoKeyword" class="dash-input" placeholder="الكلمة المفتاحية الأساسية">
+                    </div>
+                    <div class="field">
+                        <label>Slug</label>
+                        <input type="text" id="aSlug" class="dash-input" placeholder="يُملأ تلقائياً من العنوان">
+                    </div>
+                    <div class="field">
+                        <label>Keywords (كلمات مفتاحية)</label>
+                        <input type="text" id="aSeoKeywords" class="dash-input" placeholder="كلمة1, كلمة2, كلمة3">
+                    </div>
+                    <div class="field">
+                        <label>Open Graph Image</label>
+                        <input type="text" id="aOgImage" class="dash-input" placeholder="رابط صورة المشاركة على فيسبوك">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- كل المقالات -->
+        <section class="dash-view" data-view-panel="article-manage">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🗂️</span>
+                <div>
+                    <h2>كل المقالات</h2>
+                    <p>ابحث، صفِّ، ورتّب المقالات، وأدر حالتها بنقرة واحدة.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="cm-toolbar">
+                    <input type="text" id="cmSearch" class="dash-input" placeholder="🔍 بحث في المقالات...">
+                    <select id="cmFilterCat" class="dash-input"></select>
+                    <select id="cmFilterStatus" class="dash-input">
+                        <option value="">كل الحالات</option>
+                        <option value="published">منشور</option>
+                        <option value="draft">مسودة</option>
+                    </select>
+                    <select id="cmSort" class="dash-input">
+                        <option value="new">الأحدث أولاً</option>
+                        <option value="old">الأقدم أولاً</option>
+                        <option value="title">حسب العنوان</option>
+                    </select>
+                    <button id="btnGoWrite" class="btn btn-primary">✍️ مقال جديد</button>
+                </div>
+                <p class="dash-card-tip" id="cmResultCount"></p>
+                <div class="cm-grid" id="cmGrid"></div>
+                <p class="empty-msg" id="cmEmpty" style="display:none">لا توجد مقالات مطابقة. اكتب مقالك الجديد من قسم "إضافة مقال جديد".</p>
+            </div>
+        </section>
+
+        <!-- سكان القرية -->
+        <section class="dash-view" data-view-panel="residents">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">👨‍👩‍👧‍👦</span>
+                <div>
+                    <h2>سكان القرية</h2>
+                    <p>معلومات السكان وأصول العائلات المعروضة في قسم السكان.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="field">
+                    <label>أصول السكان والعائلات</label>
+                    <textarea id="resOrigin" class="dash-input" rows="4"></textarea>
+                </div>
+                <div class="field">
+                    <label>الهجرة وانتشار السكان</label>
+                    <textarea id="resMigration" class="dash-input" rows="3"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- حول أخبار القرية -->
+        <section class="dash-view" data-view-panel="news-about">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🗞️</span>
+                <div>
+                    <h2>حول أخبار القرية</h2>
+                    <p>تحكم في العنوان والفقرات والعناوين الفرعية لقسم "حول أخبار القرية" في صفحة أخبار القرية.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">✍️ العنوان والفقرات</div>
+                <div class="field">
+                    <label>عنوان القسم (يظهر باللون الذهبي)</label>
+                    <input type="text" id="nbHeading" class="dash-input">
+                </div>
+                <div class="field">
+                    <label>الفقرة الأولى</label>
+                    <textarea id="nbLead1" class="dash-input" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <label>الفقرة الثانية</label>
+                    <textarea id="nbLead2" class="dash-input" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <label>العبارة الختامية</label>
+                    <input type="text" id="nbFoot" class="dash-input">
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🗂️ العناوين الفرعية</div>
+                <p class="dash-card-tip">كل عنصر له أيقونة وعنوان ونص. أضف وحرّك واحذف كما تريد.</p>
+                <div id="newsAboutEditor" class="services-editor"></div>
+                <button id="addNewsAboutItem" class="btn btn-add">+ إضافة عنصر</button>
+            </div>
+        </section>
+
+        <!-- موتانا -->
+        <section class="dash-view" data-view-panel="deceased">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🤲</span>
+                <div>
+                    <h2>موتانا</h2>
+                    <p>أضف وحرر أسماء المتوفين مع تاريخ صلاة الجنازة، وتظهر مركّزة في قسم "موتانا" بالصفحة الرئيسية.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🪦 أسماء المتوفين</div>
+                <p class="dash-card-tip">كل اسم يظهر كبطاقة صغيرة في يمن قسم "موتانا" مع تاريخ صلاة الجنازة (اختياري). يمكنك ترتيبها وحذفها.</p>
+                <div id="deceasedEditor" class="services-editor"></div>
+                <button id="addDeceased" class="btn btn-add">+ إضافة اسم متوفى</button>
+            </div>
+        </section>
+
+        <!-- SEO للموقع -->
+        <section class="dash-view" data-view-panel="seo">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🔍</span>
+                <div>
+                    <h2>SEO للموقع</h2>
+                    <p>حسّن ظهور الموقع في محركات البحث والتواصل الاجتماعي. تُطبَّق هذه الإعدادات تلقائيًا على كل صفحات الموقع (الصفحة الرئيسية، الأخبار، الدين، المعالم، المتجر).</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🏷️ العناوين والوصف</div>
+                <p class="dash-card-tip">كل عنصر تُظهر جواره أيقونة 💡 — مرر عليها لمعرفة الهدف منه.</p>
+                <label>عنوان الموقع في محركات البحث (Tag)</label>
+                <input type="text" id="seoTitle" class="dash-input" placeholder="قرية أهل محمد — رأس عين عميروش، معسكر، الجزائر">
+                <label>وصف الموقع (Meta Description) — حتى 160 حرفًا</label>
+                <textarea id="seoDesc" class="dash-input" rows="3" placeholder="وصف مختصر وجذاب يظهر في نتائج البحث..."></textarea>
+                <div class="seo-count-row"><span id="seoDescCount" class="seo-count"></span></div>
+                <label>الكلمات المفتاحية (Meta Keywords) — افصل بينها بفاصلة</label>
+                <input type="text" id="seoKeywords" class="dash-input" placeholder="أهل محمد, قرية أهل محمد, رأس عين عميروش, معسكر, الجزائر">
+                <label>اسم المؤلف / الجهة (Meta Author)</label>
+                <input type="text" id="seoAuthor" class="dash-input" placeholder="أهل محمد">
+                <label>سلوك محركات البحث (Meta Robots)</label>
+                <select id="seoRobots" class="dash-input">
+                    <option value="index, follow">index, follow (افتراضي)</option>
+                    <option value="noindex, follow">noindex, follow</option>
+                    <option value="index, nofollow">index, nofollow</option>
+                    <option value="noindex, nofollow">noindex, nofollow</option>
+                </select>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🌐 الروابط وعناوين المشاركة</div>
+                <p class="dash-card-tip">رابط موقعك الأساسي يُستخدم في الروابط Canonical و Open Graph عند مشاركة صفحاتك.</p>
+                <label>رابط الموقع الأساسي</label>
+                <input type="url" id="seoUrl" class="dash-input" placeholder="https://example.com">
+                <label>صورة المشاركة الاجتماعية (ogImage) — لصق رابط صورة</label>
+                <input type="url" id="seoOgImage" class="dash-input" placeholder="https://example.com/cover.jpg">
+                <label>حساب تويتر / X الرسمي</label>
+                <input type="text" id="seoTwitter" class="dash-input" placeholder="@ahlmhmed">
+            </div>
+            <div class="dash-card-tip">💾 احفظ من زر "حفظ التغييرات" العام، ثم افتح صفحات الموقع بالضغط على Ctrl+Shift+R لروية النتائج.</div>
+        </section>
+
+        <!-- المظهر والألوان -->
+        <section class="dash-view" data-view-panel="appearance">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🎨</span>
+                <div>
+                    <h2>المظهر والألوان</h2>
+                    <p>اختر لون الموقع الافتراضي الذي سيظهر لجميع الزوار. احفظ من زر "حفظ التغييرات" ليُنشر للجميع، ويبقى للزوار حرية تغييره بأنفسهم من زر 🎨 في شريط التنقل.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🎨 ثيم الموقع الافتراضي</div>
+                <p class="dash-card-tip">اللون المحدد أدناه هو لون الموقع الافتراضي. يمكنك معاينته فورًا، وعند الحفظ يصبح لون الموقع الرسمي لجميع الزوار.</p>
+                <div class="dash-appearance-box">
+                    <div class="dash-appearance-swatches" id="dashThemeSwatches"></div>
+                    <p class="dash-appearance-name" id="dashThemeName">أخضر</p>
+                </div>
+                <div class="dash-card-tip">💾 بعد اختيار اللون اضغط زر "حفظ التغييرات" في الشريط العلوي لنشر اللون على الخادم وظهوره لكل زوار الموقع.</div>
+            </div>
+        </section>
+
+        <!-- التنقل والترتيب -->
+        <section class="dash-view" data-view-panel="layout">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🧭</span>
+                <div>
+                    <h2>التنقل والترتيب</h2>
+                    <p>حرّك عناصر شريط التنقل العلوي وفروع القوائم المنسدلة (⬆️/⬇️) ثم اضغط "حفظ التغييرات" ليُطبَّق الترتيب في الموقع.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">⬅️ عناصر شريط التنقل العلوي</div>
+                <p class="dash-card-tip">رتب العناصر الحالية، أو اختر "➕ إضافة قسم جديد (مخصص)" لإنشاء قسم جديد باسمك وأيقونتك.</p>
+                <div id="navTopEditor" class="services-editor"></div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">📂 فروع قائمة "عن القرية"</div>
+                <p class="dash-card-tip">رتب الفروع الحالية، أو اختر "➕ إضافة فرع جديد (مخصص)" لإنشاء فرع باسمك وأيقونتك.</p>
+                <div id="navAboutEditor" class="services-editor"></div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🕌 فروع قائمة "الدين"</div>
+                <p class="dash-card-tip">توقيت الصلاة</p>
+                <div id="navReligionEditor" class="services-editor"></div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-card-title">🗂️ الأقسام والعناوين الفرعية المخصصة</div>
+                <p class="dash-card-tip">أنشئ أقساماً مخصصة (أيقونة + اسم) وأضف تحتها عناوين فرعية (أضف، حرّك، احذف) لتنظيم محتواك داخل اللوحة كما تريد.</p>
+                <div id="customSectionsEditor" class="services-editor"></div>
+                <button id="addCustomSection" class="btn btn-add">+ إضافة قسم جديد</button>
+            </div>
+        </section>
+
+        <!-- المتجر -->
+        <section class="dash-view" data-view-panel="shop">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">🛍️</span>
+                <div>
+                    <h2>المتجر</h2>
+                    <p>أدر منتجات المتجر (الاسم، السعر، رابط الصورة، الوصف).</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div id="shopEditor" class="services-editor"></div>
+                <button id="addProduct" class="btn btn-add">+ إضافة منتج</button>
+            </div>
+        </section>
+
+        <!-- الرسائل -->
+        <section class="dash-view" data-view-panel="contact">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">📩</span>
+                <div>
+                    <h2>الرسائل الواردة</h2>
+                    <p>الرسائل التي أرسلها الزوار عبر نموذج التواصل في الموقع تظهر هنا.</p>
+                </div>
+            </div>
+            <div class="dash-card">
+                <div id="messagesList" class="messages-list">
+                    <p class="empty-msg">لا توجد رسائل بعد.</p>
+                </div>
+                <button id="clearMessages" class="btn btn-danger">🗑️ مسح كل الرسائل</button>
+            </div>
+        </section>
+
+        <!-- تحليلات الزوار -->
+        <section class="dash-view analytics-view" data-view-panel="analytics">
+            <div class="dash-section-head">
+                <span class="dash-section-icon">📈</span>
+                <div>
+                    <h2>تحليلات الزوار</h2>
+                    <p>لوحة تحليل زوار الموقع — حاليًا تعرض بيانات تجريبية (Demo Data) وليست حقيقية، وجاهزة لاحقًا للربط بـ API وقاعدة بيانات.</p>
+                </div>
+            </div>
+            <div class="analytics-frame-wrap">
+                <iframe id="analyticsFrame" class="analytics-frame" title="تحليلات الزوار" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="storage.js?v=2"></script>
+    <script src="utils.js"></script>
+    <script src="dashboard.js?v=18"></script>
+    <script src="editor.js?v=2"></script>
+    <script src="themes.js"></script>
+</body>
+</html>

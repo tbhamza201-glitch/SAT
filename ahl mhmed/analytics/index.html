@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="لوحة تحكم تحليل زوار الموقع - Analytics Dashboard (بيانات تجريبية)" />
+  <title>لوحة تحليلات الزوار | Analytics</title>
+
+  <!-- خط Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js عبر CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ===== القائمة الجانبية ===== -->
+    <aside class="sidebar" id="sidebar" aria-label="القائمة الجانبية">
+      <div class="sidebar-header">
+        <a href="#" class="logo" id="logoLink">
+          <span class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </span>
+          <span class="logo-text">تتبّع Analytics</span>
+        </a>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="إغلاق القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-label">الرئيسية</span>
+        <a href="#overview" class="nav-item active" data-target="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          <span>نظرة عامة</span>
+        </a>
+        <a href="#visitors" class="nav-item" data-target="visitors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>الزوار</span>
+        </a>
+
+        <span class="nav-label">الموقع الجغرافي</span>
+        <a href="#countries" class="nav-item" data-target="countries">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <span>البلدان</span>
+        </a>
+        <a href="#wilayas" class="nav-item" data-target="wilayas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+          <span>الولايات</span>
+        </a>
+        <a href="#cities" class="nav-item" data-target="cities">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"></path></svg>
+          <span>المدن</span>
+        </a>
+        <a href="#communes" class="nav-item" data-target="communes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          <span>البلديات</span>
+        </a>
+
+        <span class="nav-label">الأداء</span>
+        <a href="#pages" class="nav-item" data-target="pages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <span>الصفحات</span>
+        </a>
+        <a href="#sources" class="nav-item" data-target="sources">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          <span>مصادر الزيارات</span>
+        </a>
+
+        <span class="nav-label">الأجهزة</span>
+        <a href="#devices" class="nav-item" data-target="devices">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span>الأجهزة</span>
+        </a>
+        <a href="#browsers" class="nav-item" data-target="browsers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span>المتصفحات</span>
+        </a>
+        <a href="#os" class="nav-item" data-target="os">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"></path></svg>
+          <span>أنظمة التشغيل</span>
+        </a>
+
+        <span class="nav-label">مباشر</span>
+        <a href="#realtime" class="nav-item" data-target="realtime">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <span>الوقت الحقيقي</span>
+          <span class="nav-dot"></span>
+        </a>
+        <a href="#" class="nav-item" data-target="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>الإعدادات</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="demo-badge">
+          <span class="pulse-dot"></span>
+          وضع تجريبي
+        </div>
+        <p class="demo-hint">جميع الأرقام المعروضة بيانات تجريبية Demo Data وليست حقيقية.</p>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ===== المحتوى الرئيسي ===== -->
+    <main class="main">
+      <!-- الشريط العلوي -->
+      <header class="topbar">
+        <div class="topbar-grow">
+          <button class="icon-btn accordion-trigger" id="menuBtn" aria-label="فتح القائمة">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+
+          <div class="topbar-search" id="topbarSearch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="globalSearch" placeholder="ابحث في البلدان، الولايات، المدن، الصفحات..." autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="themeToggle" aria-label="تبديل الوضع الليلي" title="الوضع الليلي / النهاري">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+          <button class="btn btn-ghost" id="refreshBtn" aria-label="تحديث البيانات">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            <span class="btn-label">تحديث</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- فلتر الفترة الزمنية -->
+      <div class="filter-row" id="periodFilter">
+        <span class="filter-caption">الفترة الزمنية:</span>
+        <div class="segmented" role="tablist" aria-label="فترة زمنية">
+          <button class="seg-btn" data-period="day">اليوم</button>
+          <button class="seg-btn active" data-period="30d">آخر 30 يومًا</button>
+          <button class="seg-btn" data-period="7d">آخر 7 أيام</button>
+          <button class="seg-btn" data-period="90d">آخر 90 يومًا</button>
+          <button class="seg-btn" data-period="year">هذا العام</button>
+        </div>
+      </div>
+
+      <section class="content" id="contentArea">
+        <!-- حالة مصدر البيانات -->
+        <div class="demo-notice notice-idle" id="sourceNotice">
+          <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span id="sourceNoticeText">جارٍ تحميل البيانات...</span>
+        </div>
+
+        <!-- بطاقات الإحصائيات -->
+        <span id="visitors" class="section-anchor"></span>
+        <section id="overview" class="section scroll-target">
+          <div class="cards-grid" id="overviewCards"></div>
+        </section>
+
+        <!-- الرسم الرئيسي + الأجهزة -->
+        <div class="grid-3">
+          <section id="traffic" class="card span-2 scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزيارات خلال الفترة</h2>
+                <p class="card-subtitle">عدد زيارات زوار الموقع عبر الزمن</p>
+              </div>
+              <div class="card-head-tools">
+                <span class="range-total" id="rangeTotal"></span>
+              </div>
+            </div>
+            <div class="chart-box">
+              <canvas id="trafficChart" height="100"></canvas>
+              <div class="chart-empty hidden" id="trafficEmpty">لا توجد زيارات مسجلة بعد</div>
+            </div>
+          </section>
+
+          <section id="devices" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الأجهزة المستخدمة</h2>
+                <p class="card-subtitle">توزيع الزوار حسب نوع الجهاز</p>
+              </div>
+            </div>
+            <div class="chart-box chart-box-sm">
+              <canvas id="devicesChart"></canvas>
+            </div>
+            <ul class="chart-legend" id="devicesLegend"></ul>
+          </section>
+        </div>
+
+        <!-- البلدان + الولايات -->
+        <div class="grid-3">
+          <section id="countries" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزوار حسب البلد</h2>
+                <p class="card-subtitle">أعلى الدول زيارةً لموقعك</p>
+              </div>
+            </div>
+            <ul class="stat-list" id="countriesList"></ul>
+          </section>
+
+          <section id="wilayas" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزوار حسب الولاية</h2>
+                <p class="card-subtitle">توزيع الزوار داخل الوطن</p>
+              </div>
+            </div>
+            <ul class="stat-list" id="wilayasList"></ul>
+          </section>
+
+          <section id="communes" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزوار حسب البلدية</h2>
+                <p class="card-subtitle">أفضل جهد من بيانات الموقع الجغرافي — غير المطابق يظهر "غير محددة"</p>
+              </div>
+            </div>
+            <ul class="stat-list" id="communesList"></ul>
+          </section>
+        </div>
+
+        <!-- المدن + مصادر الزيارات -->
+        <div class="grid-3">
+          <section id="cities" class="card span-2 scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزوار حسب المدينة</h2>
+                <p class="card-subtitle">أدق مستوى جغرافي متاح</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>المدينة</th>
+                    <th>الولاية</th>
+                    <th>عدد الزيارات</th>
+                    <th>النسبة</th>
+                  </tr>
+                </thead>
+                <tbody id="citiesBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="sources" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">مصادر الزيارات</h2>
+                <p class="card-subtitle">من أين يأتي الزوار</p>
+              </div>
+            </div>
+            <div class="chart-box chart-box-xs">
+              <canvas id="sourcesChart"></canvas>
+            </div>
+            <ul class="chart-legend" id="sourcesLegend"></ul>
+          </section>
+        </div>
+
+        <!-- المتصفحات + أنظمة التشغيل -->
+        <div class="grid-3">
+          <section id="browsers" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">المتصفحات</h2>
+                <p class="card-subtitle">المتصفحات التي يستخدمها الزوار</p>
+              </div>
+            </div>
+            <ul class="stat-list" id="browsersList"></ul>
+          </section>
+
+          <section id="os" class="card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">أنظمة التشغيل</h2>
+                <p class="card-subtitle">أنظمة تشغيل أجهزة الزوار</p>
+              </div>
+            </div>
+            <ul class="stat-list" id="osList"></ul>
+          </section>
+        </div>
+
+        <!-- الصفحات الأكثر زيارة + الوقت الحقيقي -->
+        <div class="grid-3">
+          <section id="pages" class="card span-2 scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الصفحات الأكثر زيارة</h2>
+                <p class="card-subtitle">أفضل 5 صفحات داخل الموقع</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>الصفحة</th>
+                    <th>المشاهدات</th>
+                    <th>الزوار</th>
+                    <th>متوسط البقاء</th>
+                    <th>نسبة الارتداد</th>
+                  </tr>
+                </thead>
+                <tbody id="pagesBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="realtime" class="card realtime-card scroll-target">
+            <div class="card-head">
+              <div class="card-titles">
+                <h2 class="card-title">الزوار الآن</h2>
+                <p class="card-subtitle">تحديث مباشر — بيانات Demo</p>
+              </div>
+              <span class="live-chip">
+                <span class="pulse-dot"></span>
+                مباشر
+              </span>
+            </div>
+
+            <div class="live-count-row">
+              <div>
+                <div class="live-count" id="liveCount">37</div>
+                <div class="live-count-label">زائرًا الآن</div>
+              </div>
+              <div class="live-side">
+                <div class="live-mini" id="liveViews">0</div>
+                <div class="live-mini-label">مشاهدة الآن</div>
+              </div>
+            </div>
+
+            <ul class="realtime-list" id="realtimeList"></ul>
+          </section>
+        </div>
+
+        <footer class="main-footer">
+          <span>لوحة تحليلات الزوار — جميع البيانات المعروضة <strong>تجريبية (Demo Data)</strong> وليست حقيقية.</span>
+          <span>جاهزة للربط بـ API وقاعدة بيانات.</span>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- سكربت اللوحة -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
